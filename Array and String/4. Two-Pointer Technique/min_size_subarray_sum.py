@@ -27,11 +27,6 @@ print('Output for test case 1: {}'.format(s.minSubArrayLen(target = 7, nums = [2
 print('Executing test case 2: target = 4, nums = [1,4,4]')
 print('Output for test case 2: {}'.format(s.minSubArrayLen(target = 4, nums = [1,4,4])))
 
-
 # Test case 3
 print('Executing test case 3: target = 11, nums = [1,1,1,1,1,1,1,1]')
 print('Output for test case 3: {}'.format(s.minSubArrayLen(target = 11, nums = [1,1,1,1,1,1,1,1])))
-
-# Test case 3
-print('Executing test case 3: target = 11, nums = [1,2,3,4,5]')
-print('Output for test case 3: {}'.format(s.minSubArrayLen(target = 11, nums = [1,2,3,4,5])))
