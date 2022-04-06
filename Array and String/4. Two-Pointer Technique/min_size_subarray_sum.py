@@ -2,20 +2,20 @@ from typing import List
 
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        k, current_length, cumulative_sum = 0,0,0
-        best_length=float('inf')
-        sorted_nums=sorted(nums)
-
+        k, curr_len, curr_sum = 0,0,0
+        best_len=float('inf')
+        # sorted_nums = sorted(nums)
+        
         for i in range(len(nums)):
-            cumulative_sum += sorted_nums[i]
-
-            while cumulative_sum >= target:
-                current_length=i-k+1
-                best_length=min(best_length,current_length)
-                cumulative_sum-=sorted_nums[k]
+            curr_sum += nums[i]
+            
+            while curr_sum >= target:
+                curr_len = i-k+1
+                best_len = min(best_len, curr_len)
+                curr_sum -= nums[k]
                 k+=1
-
-        return 0 if best_length == float('inf') else best_length
+        
+        return 0 if best_len == float('inf') else best_len
 
 # Driver code
 s = Solution()
