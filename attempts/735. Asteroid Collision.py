@@ -4,17 +4,18 @@ class Solution:
         stack = []
 
         for asteroid in asteroids:
-            while stack and stack[-1]>0 and asteroid<0:
+            while stack and asteroid<0 and stack[-1]>0:
                 collision = stack[-1] + asteroid
 
-                if collision < 0:
+                if collision > 0:
+                    asteroid=0
+                elif collision < 0:
                     stack.pop()
-                elif collision > 0:
-                    break
                 else:
+                    asteroid=0
                     stack.pop()
-                    break
-            else:
+
+            if asteroid != 0:
                 stack.append(asteroid)
         return stack
 
