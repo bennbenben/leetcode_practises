@@ -4,6 +4,7 @@ class Solution:
         len_palindrome, max_palin_len = int(), int()
         
         for i in range(len(s)):
+            # case when len(string) is odd
             left, right = i, i
             
             while left >= 0 and right < len(s) and s[left] == s[right]:
@@ -17,6 +18,7 @@ class Solution:
                 left -= 1
                 right += 1
             
+            # case when len(string) is even
             left, right = i, i+1
             
             while left >= 0 and right < len(s) and s[left] == s[right]:
