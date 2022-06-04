@@ -7,27 +7,26 @@
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        
         def lowestCommon(root):
-            # recursive base case (to stop recursion)
+            # recursive base case - reject
             if not root:
                 return None
-            # recursive base case (to stop recursion)
+            # recursive base case - accept
             if root == p or root == q:
                 return root
             
-            # start recursive
+            # start recursion
             left = lowestCommon(root.left)
             right = lowestCommon(root.right)
             
-            # case 1 - both p and q found on same level
+            # case 1 - both on same level
             if left and right:
                 return root
             
-            # case 2 - both found one different levels
+            # case 2 - both not on same level
             if left:
                 return left
-            else:
+            if right:
                 return right
-
+        
         return lowestCommon(root)
