@@ -7,13 +7,21 @@
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         
-        def isValid(node, left_value, right_value):
-            if not node:
+        def isValid(root, left_val, right_val):
+            # base case to stop recursion
+            if not root:
                 return True
-            if not (node.val > left_value and node.val < right_value):
+            if not (root.val > left_val and root.val < right_val):
                 return False
             
-            return (isValid(node.left, left_value, node.val) and 
-            isValid(node.right, node.val, right_value))
+            # start recursion
+            left = isValid(root.left, left_val, root.val)
+            right = isValid(root.right, root.val, right_val)
+            
+            # validate recursion result
+            if left and right:
+                return True
+            else:
+                return False
         
-        return isValid(root, -1*float("inf"), float("inf"))
+        return isValid(root, -1*float('inf'), float('inf'))
