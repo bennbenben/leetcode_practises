@@ -6,19 +6,19 @@
 #         self.right = right
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        if not root:
-            return None
+        def dfs(root):
+            # base case for recursion
+            if not root:
+                return
+            
+            # start recursion
+            left = self.invertTree(root.left)
+            right = self.invertTree(root.right)
+            
+            new_node = TreeNode(root.val)
+            new_node.right = left
+            new_node.left = right
+            
+            return new_node
         
-        #recursively retrieve the right and left side
-        right = self.invertTree(root.right)
-        left = self.invertTree(root.left)
-        
-        #initiatilize a new node
-        newRoot = TreeNode(root.val)
-        
-        #assign mirror image to the new nodes
-        newRoot.left = right
-        newRoot.right = left
-        
-        #return the new node
-        return newRoot
+        return dfs(root)
