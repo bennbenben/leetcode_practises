@@ -11,7 +11,7 @@ class Solution:
             # base case to stop recursion
             if not root:
                 return True
-            if not (root.val > left_val and root.val < right_val):
+            if not (left_val < root.val and root.val < right_val):
                 return False
             
             # start recursion
