@@ -16,11 +16,11 @@ class Solution:
         
         val_1, val_2 = int("".join(list_1)), int("".join(list_2))
         output_list = list(str(val_1+val_2))
-        
+
         sentinel_head = ListNode(0)
         prev_node = sentinel_head
         for head in output_list:
-            new_node = ListNode(head)
+            new_node = ListNode(int(head))
             prev_node.next = new_node
             prev_node = new_node
         
