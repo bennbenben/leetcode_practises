@@ -1,26 +1,26 @@
 # Top 20 Programming questions asked in an interview (from [TECHGIG](https://content.techgig.com/hiring/20-most-frequently-asked-programming-interview-questions/articleshow/74608663.cms))
 
 ## Questions:
-1. How is a bubble sort algorithm implemented?
-2. How to print the first non-repeated character from a string?
-3. How to find the first non repeated character of a given String?
-4. How do you find duplicate numbers in an array if it contains multiple duplicates?
-5. How do you remove duplicates from an array in place?
-6. How are duplicates removed from an array without using any library?
-7. How do you find the middle element of a singly linked list in one pass?
-8. How do you check if a given linked list contains a cycle? How will you find initial node of the cycle?
-9. How do you reverse a singly linked list without recursion?
-10. How is a binary search tree implemented?
-11. How do you traverse a given binary tree in preorder without recursion?
-12. How do you print all nodes of a given binary tree using inorder traversal without recursion?
-13. How is a merge sort algorithm implemented?
-14. How is a radix sort algorithm implemented?
-15. How do you swap two numbers without using the third variable?
-16. How do you design a vending machine?
-17. Write a program to find prime factors of an integer?
-18. What is Depth First Search Algorithm for a binary tree?
-19. Difference between a stable and unstable sorting algorithm?
-20. What is the difference between Comparison and Non-Comparison Sorting Algorithms?
+[1. How is a bubble sort algorithm implemented?](#1.-how-is-a-bubble-sort-algorithm-implemented?)<br/>
+[2. How to print the first non-repeated character from a string?](#2-how-to-print-the-first-non-repeated-character-from-a-string)<br/>
+[3. How to find the first non repeated character of a given String?](#3-how-to-find-the-first-non-repeated-character-of-a-given-string)<br/>
+[4. How do you find duplicate numbers in an array if it contains multiple duplicates?](#4-how-do-you-find-duplicate-numbers-in-an-array-if-it-contains-multiple-duplicates)<br/>
+[5. How do you remove duplicates from an array in place?](#5-how-do-you-remove-duplicates-from-an-array-in-place)<br/>
+[6. How are duplicates removed from an array without using any library?](#6-how-are-duplicates-removed-from-an-array-without-using-any-library)<br/>
+[7. How do you find the middle element of a singly linked list in one pass?](#7-how-do-you-find-the-middle-element-of-a-singly-linked-list-in-one-pass)<br/>
+[8. How do you check if a given linked list contains a cycle? How will you find initial node of the cycle?](#8-how-do-you-check-if-a-given-linked-list-contains-a-cycle-how-will-you-find-initial-node-of-the-cycle)<br/>
+[9. How do you reverse a singly linked list without recursion?](#9-how-do-you-reverse-a-singly-linked-list-without-recursion)<br/>
+[10. How is a binary search tree implemented?](#10-how-is-a-binary-search-tree-implemented)<br/>
+[11. How do you traverse a given binary tree in preorder without recursion?](#11-how-do-you-traverse-a-given-binary-tree-in-preorder-without-recursion)<br/>
+[12. How do you print all nodes of a given binary tree using inorder traversal without recursion?](#12-how-do-you-print-all-nodes-of-a-given-binary-tree-using-inorder-traversal-without-recursion)<br/>
+[13. How is a merge sort algorithm implemented?](#13-how-is-a-merge-sort-algorithm-implemented)<br/>
+[14. How is a radix sort algorithm implemented?](#14-how-is-a-radix-sort-algorithm-implemented)<br/>
+[15. How do you swap two numbers without using the third variable?](#15-how-do-you-swap-two-numbers-without-using-the-third-variable)<br/>
+[16. How do you design a vending machine?](#16-how-do-you-design-a-vending-machine)<br/>
+[17. Write a program to find prime factors of an integer?](#17-write-a-program-to-find-prime-factors-of-an-integer)<br/>
+[18. What is Depth First Search Algorithm for a binary tree?](#18-what-is-depth-first-search-algorithm-for-a-binary-tree)<br/>
+[19. Difference between a stable and unstable sorting algorithm?](#19-difference-between-a-stable-and-unstable-sorting-algorithm)<br/>
+[20. What is the difference between Comparison and Non-Comparison Sorting Algorithms?](#20-what-is-the-difference-between-comparison-and-non-comparison-sorting-algorithms)
 
 ---
 
