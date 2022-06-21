@@ -5,9 +5,14 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         for i in range(len(nums)):
-            for j in range(i):
-                if nums[j]>nums[i]:
-                    nums[j], nums[i] = nums[i], nums[j]
+            swapped = False
+            for j in range(0, len(nums)-1-i):
+                if nums[j] > nums[j+1]:
+                    nums[j], nums[j+1] = nums[j+1], nums[j]
+                    swapped = True
+            # one pass has confirmed that elements are already in sorted place
+            if swapped == False:
+                break
         
         print(nums)
 
