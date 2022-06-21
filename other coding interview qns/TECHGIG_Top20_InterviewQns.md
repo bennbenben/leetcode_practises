@@ -1,6 +1,32 @@
 # Top 20 Programming questions asked in an interview (from [TECHGIG](https://content.techgig.com/hiring/20-most-frequently-asked-programming-interview-questions/articleshow/74608663.cms))
 
-## 1. How is a bubble sort algorithm implemented?
+## Questions:
+1. How is a bubble sort algorithm implemented?
+2. How to print the first non-repeated character from a string?
+3. How to find the first non repeated character of a given String?
+4. How do you find duplicate numbers in an array if it contains multiple duplicates?
+5. How do you remove duplicates from an array in place?
+6. How are duplicates removed from an array without using any library?
+7. How do you find the middle element of a singly linked list in one pass?
+8. How do you check if a given linked list contains a cycle? How will you find initial node of the cycle?
+9. How do you reverse a singly linked list without recursion?
+10. How is a binary search tree implemented?
+11. How do you traverse a given binary tree in preorder without recursion?
+12. How do you print all nodes of a given binary tree using inorder traversal without recursion?
+13. How is a merge sort algorithm implemented?
+14. How is a radix sort algorithm implemented?
+15. How do you swap two numbers without using the third variable?
+16. How do you design a vending machine?
+17. Write a program to find prime factors of an integer?
+18. What is Depth First Search Algorithm for a binary tree?
+19. Difference between a stable and unstable sorting algorithm?
+20. What is the difference between Comparison and Non-Comparison Sorting Algorithms?
+
+---
+
+## Answers
+
+> ### 1. How is a bubble sort algorithm implemented?
 <p>Bubble sort is implemented by comparing adjacent elements until the entire array is sorted. It needs one full pass to know that it's fully sorted</p>
 
 ```
@@ -14,9 +40,8 @@ def bubblesort(nums):
         # one pass has confirmed that elements are already in sorted place
         if swapped == False:
             break
-
 ```
-## 2. How to print the first non-repeated character from a string?
+> ### 2. How to print the first non-repeated character from a string?
 <p>Create a hash map of the letters and its respective counts</p>
 <p>Iterate through the hashmap and return where the count == 1</p>
 
@@ -39,10 +64,10 @@ class Solution:
         return -1
 ```
 
-## 3. How to find the first non repeated character of a given String?
+> ### 3. How to find the first non repeated character of a given String?
 <p>Same as above #2</p>
 
-## 4. How do you find duplicate numbers in an array if it contains multiple duplicates?
+> ### 4. How do you find duplicate numbers in an array if it contains multiple duplicates?
 <p>Create a counter's hash map and populate it: {number: count}</p>
 <p>Then iterate through it. It count == 2, append the number to another list</p>
 <p>Finally, return the list</p>
@@ -59,7 +84,7 @@ def findDuplicates(self, nums: List[int]) -> List[int]:
         return output
 ```
 
-## 5. How do you remove duplicates from an array in place?
+> ### 5. How do you remove duplicates from an array in place?
 <p>Iterate through the array from idx 1 onwards while holding a left pointer</p>
 <p>If nums[i] == nums[i-1]: assign the left pointer to nums[i] and increment left ptr by 1</p>
 
@@ -79,11 +104,11 @@ def removeDuplicates(self, nums: List[int]) -> int:
     return left
 ```
 
-## 6. How are duplicates removed from an array without using any library?
+> ### 6. How are duplicates removed from an array without using any library?
 <p>Create a counter dictionary of the array (after iterating and counting thru it)</p>
 <p>Afterwards, iterate thru the dictionary. Run the list.remove method for x number of times</p>
 
-## 7. How do you find the middle element of a singly linked list in one pass?
+> ### 7. How do you find the middle element of a singly linked list in one pass?
 <p>Iterate from the first Node with slow and fast pointer. Slow += 1, fast += 2</p>
 <p>while loop condition - if fast and fast.next:</p>
 
@@ -105,7 +130,7 @@ class Solution:
         return slow
 ```
 
-## 8. How do you check if a given linked list contains a cycle? How will you find initial node of the cycle?
+> ### 8. How do you check if a given linked list contains a cycle? How will you find initial node of the cycle?
 <p>Use a hash set to store all the nodes (while iterating thru them). If encounter a Node that is in the hash set, then cycle exists</p>
 
 [Leetcode 141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
@@ -136,7 +161,7 @@ class Solution:
         return False
 ```
 
-## 9. How do you reverse a singly linked list without recursion?
+> ### 9. How do you reverse a singly linked list without recursion?
 <p>Initialize a None node, then iterate through the LL</p>
 <p>Each time, reversing the node's pointer</p>
 
@@ -165,13 +190,141 @@ class Solution:
         return prev_node
 ```
 
-## 10. How is a binary search tree implemented?
+> ### 10. How is a binary search tree implemented?
+<p>A binary tree where each node has an associated value. It allows fast lookup, addition, and removal of items</p>
+<p>Require 2 classes - Node & BST</p>
 
-## 11. How do you traverse a given binary tree in preorder without recursion?
+[Answer from here](https://www.educative.io/answers/how-do-you-implement-a-binary-search-tree-in-multiple-languages)
 
-## 12. How do you print all nodes of a given binary tree using inorder traversal without recursion?
+```
+# Node Class
+class Node:
+    # Default Constructor
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
 
-## 13. How is a merge sort algorithm implemented?
+    # A utility function to insert a new node with given val in BST
+    def insert(self, val):
+      
+      # If the tree is empty, return a new node
+      if not self:
+        self = Node(val)
+        return
+      
+      # Otherwise, recur down the tree
+      if val < self.val:
+        if self.left:
+          self.left.insert(val)
+        else:
+          self.left = Node(val)
+          return      
+      else:
+        if self.right:
+          self.right.insert(val)
+        else:
+          self.right = Node(val)
+          return
+        
+# BST Class    
+class binarySearchTree:
+    def __init__(self, val):
+        self.root = Node(val)
+    
+    def insert(self, val):
+      self.root.insert(val)
+      
+# A utility function to do inorder tree traversal 
+def inorder(root): 
+  if root: 
+    inorder(root.left) 
+    print(root.val) 
+    inorder(root.right) 
+  
+# Let's create the above Binary Search Tree
+
+BST = binarySearchTree(6)
+
+BST.insert(3)
+BST.insert(9)
+BST.insert(1)
+BST.insert(5)
+BST.insert(7)
+BST.insert(11)
+
+# Print inoder traversal of the BST 
+inorder(BST.root)
+```
+
+> ### 11. How do you traverse a given binary tree in preorder without recursion?
+<p>Use the iterative way</p>
+
+[Leetcode 144. Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)
+
+```
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        if not root:
+            return
+        
+        stack, output = list(), list()
+        stack.append(root)
+        
+        while stack:
+            curr_node = stack.pop()
+            
+            if curr_node:
+                output.append(curr_node.val)
+            
+            if curr_node.right:
+                stack.append(curr_node.right)
+                
+            if curr_node.left:
+                stack.append(curr_node.left)
+        
+        return output
+```
+
+> ### 12. How do you print all nodes of a given binary tree using inorder traversal without recursion?
+<p>Inorder - Left, Root, Right</p>
+
+[Leetcode 94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+
+```
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        stack = []
+        output = []
+        
+        curr_node = root
+        
+        while curr_node or stack:
+            while curr_node:
+                stack.append(curr_node)
+                curr_node = curr_node.left
+            
+            curr_node = stack.pop()
+            output.append(curr_node.val)
+            curr_node = curr_node.right
+
+        print(output)
+        return output
+```
+
+> ### 13. How is a merge sort algorithm implemented?
 <p>Merge Sort is a stable and recursive sorting algorithm. It splits elements into individual ones before joining them back together (sorted)</p>
 <p>Time complexity: O(nLogn)</p>
 <p>Space complexity: O(n)</p>
@@ -215,10 +368,9 @@ def merge_sort(nums):
             j += 1
 ```
 
+> ### 14. How is a radix sort algorithm implemented?
 
-## 14. How is a radix sort algorithm implemented?
-
-## 15. How do you swap two numbers without using the third variable?
+> ### 15. How do you swap two numbers without using the third variable?
 1. Use python in-built
 ```
 x, y = 10, 20
@@ -251,9 +403,9 @@ print ("After swapping: ")
 print("Value of x : ", x, " and y : ", y)
 ```
 
-## 16. How do you design a vending machine?
+> ### 16. How do you design a vending machine?
 
-## 17. Write a program to find prime factors of an integer?
+> ### 17. Write a program to find prime factors of an integer?
 <p>Initialize a variable prime = 2. Use a while loop to track if (nums > 1). Each time, if nums is divisible by prime, then execute it and track prime</p>
 <p>Else, increment prime by 1</p>
 
@@ -270,13 +422,15 @@ def primeFactors(nums):
     return output
 ```
 
-## 18. What is Depth First Search Algorithm for a binary tree?
-## 19. Difference between a stable and unstable sorting algorithm?
+> ### 18. What is Depth First Search Algorithm for a binary tree?
+<p>It is a backtracking (recursive) way for traversing a binary tree. The deepest node is reached first, then backtracks to its parent node (if it has no child nodes)</p>
+
+> ### 19. Difference between a stable and unstable sorting algorithm?
 <p>Mainly on how the algorithm treats equal (or repeated) elements</p>
 <p>Stable sorting algorithms preserve the relative order of equal elements, while unstable sorting algorithms don’t</p>
 
 ![Snippet showing stable vs unstable sorting algos](https://www.baeldung.com/wp-content/uploads/2019/08/Stable-vs-Unstable-1.png)
 
-## 20. What is the difference between Comparison and Non-Comparison Sorting Algorithms?
+> ### 20. What is the difference between Comparison and Non-Comparison Sorting Algorithms?
 <p>Comparison sorting algorithmns have a comparison operator - like smaller than or bigger than</p>
 <p>Sorting algorithms that sort the data without comparing the elements are called non-comparison sorting</p>
