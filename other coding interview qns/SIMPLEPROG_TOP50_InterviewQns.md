@@ -4,8 +4,8 @@
 [1. How do you find the missing number in a given integer array of 1 to 100?](#1-how-do-you-find-the-missing-number-in-a-given-integer-array-of-1-to-100)
 [2. How do you find the duplicate number on a given integer array?](#2-how-do-you-find-the-duplicate-number-on-a-given-integer-array)
 [3. How do you find the largest and smallest number in an unsorted integer array?](#3-how-do-you-find-the-largest-and-smallest-number-in-an-unsorted-integer-array)
-[4. How do you find all pairs of an integer array whose sum is equal to a given number?]
-[5. How do you find duplicate numbers in an array if it contains multiple duplicates?]
+[4. How do you find all pairs of an integer array whose sum is equal to a given number?](#4-how-do-you-find-all-pairs-of-an-integer-array-whose-sum-is-equal-to-a-given-number)
+[5. How do you find duplicate numbers in an array if it contains multiple duplicates?](#5-how-do-you-find-duplicate-numbers-in-an-array-if-it-contains-multiple-duplicates)
 [6. How are duplicates removed from a given array in Java?]
 [7. How is an integer array sorted in place using the quicksort algorithm?]
 [8. How do you remove duplicates from an array in place?]
@@ -14,7 +14,7 @@
 
 ## Answers
 > ### 1. How do you find the missing number in a given integer array of 1 to 100?
-<p>1. Add up 2 sums: one from the integer array, and another is from 1 to 100. Subtract both from each other to get the missing number</p>
+<p>Add up 2 sums: one from the integer array, and another is from 1 to 100. Subtract both from each other to get the missing number</p>
 
 ```
 def missingNum(nums):
@@ -107,6 +107,42 @@ def twoSum(self, nums: List[int], target: int) -> List[int]:
         else:
             nums_dict[nums[i]] = i
 ```
+
+> ### 5. How do you find duplicate numbers in an array if it contains multiple duplicates?
+<p>Use a hash_map to count the frequency of the numbers in the array. Return those where frequency >= 2</p>
+
+[Leetcode 442. Find All Duplicates in an Array](https://leetcode.com/problems/find-all-duplicates-in-an-array/)
+
+```
+# Use Python collections.Counter
+from collections import Counter
+def findDuplicates(self, nums: List[int]) -> List[int]:
+    nums_count = Counter(nums)
+    output = list()
+    
+    for key, val in nums_count.items():
+        if val >= 2:
+            output.append(key)
+    
+    return output
+
+# Use Sorting
+def findDuplicates(self, nums: List[int]) -> List[int]:
+    nums.sort()
+    print(nums)
+    left = 0
+    output = list()
+    
+    for i in range(1, len(nums)):
+        if nums[i] != nums[left]:
+            left += 1
+        else:
+            output.append(nums[left])
+            left += 1
+            
+    return output
+```
+
 
 ---
 

@@ -1,33 +1,34 @@
-def flatten(num):
-    if num == []:
-        return num
+def flatten(nums):
+    # recursive base case
+    if nums == []:
+        return nums
 
-    if type(num[0]) == list:
-        return flatten(num[0]) + flatten(num[1:])
+    # remove one layer of list
+    if type(nums[0]) == list:
+        return flatten(nums[0]) + flatten(nums[1:])
 
-    return num[:1] + flatten(num[1:])
-        
+    # accumulate output
+    return [nums[0]] + flatten(nums[1:])
 
 def radix(nums):
-    # length of largest digit
-    nums_digits = len(str(max(nums)))
-    
-    # iterate thru nums for n times, where n = nums_digits
-    # each time, doing a bucket sort
-    for digit in range(0, nums_digits):
-        bucket, flatten_bucket = list(), list()
-        for _ in range(10):
-            bucket.append([])
-        
-        # start classifying items by buckets
-        for item in nums:
-            bucket_num = item // (10**digit) % 10
-            bucket[bucket_num].append(item)
-        flatten_bucket = flatten(bucket)
-    return flatten_bucket
+    # create width
+    width = len(str(max(nums)))
 
-var = [2,0,2,1,1,0]
+    for power in range(width):
+        # create buckets
+        bucket = [[] for _ in range(10)]
+
+        # assign nums into buckets
+        for n in nums:
+            bucket_idx = n // (10**power) % 10
+            bucket[bucket_idx].append(n)
+
+        # flatten bucket back into nums (for next iteration)
+        nums = flatten(bucket)
+    return nums
+
+var = [221,103,111,428,329,853]
 print(radix(var))
 
-var = [2,0,1]
+var = [2, 0, 1]
 print(radix(var))
