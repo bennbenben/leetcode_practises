@@ -369,6 +369,46 @@ def merge_sort(nums):
 ```
 
 > ### 14. How is a radix sort algorithm implemented?
+<p>Radix sort is a stable sorting algorithm that uses counting sort as a subroutine</p>
+<p>It sorts by significant digit's places into buckets, from the least sig fig to the most sig fig</p>
+<p>Time complexity is O(N*K), where N is number of elements in the array, and K is the len(largest digit in array)</p>
+<p>Space complexity is O(N+K), because it creates multiple arrays in between</p>
+
+```
+def flatten(num):
+    if num == []:
+        return num
+
+    if type(num[0]) == list:
+        return flatten(num[0]) + flatten(num[1:])
+
+    return num[:1] + flatten(num[1:])
+        
+
+def radix(nums):
+    # length of largest digit
+    nums_digits = len(str(max(nums)))
+    
+    # iterate thru nums for n times, where n = nums_digits
+    # each time, doing a bucket sort
+    for digit in range(0, nums_digits):
+        bucket, flatten_bucket = list(), list()
+        for _ in range(10):
+            bucket.append([])
+        
+        # start classifying items by buckets
+        for item in nums:
+            bucket_num = item // (10**digit) % 10
+            bucket[bucket_num].append(item)
+        flatten_bucket = flatten(bucket)
+    return flatten_bucket
+
+var = [2,0,2,1,1,0]
+print(radix(var))
+
+var = [2,0,1]
+print(radix(var))
+```
 
 > ### 15. How do you swap two numbers without using the third variable?
 1. Use python in-built
