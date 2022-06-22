@@ -8,6 +8,15 @@ class Solution:
             else:
                 output.add(n)
 
+# Use collections.Counter                
+from collections import Counter
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        nums_count = Counter(nums)
+        for key, val in nums_count.items():
+            if val > 1:
+                return key
+
 # Sorting Solution
 class Solution:                
     def findDuplicate(self, nums: List[int]) -> int:
