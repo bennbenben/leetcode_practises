@@ -2,8 +2,8 @@
 
 ## Array Coding Interview Questions:
 [1. How do you find the missing number in a given integer array of 1 to 100?](#1-how-do-you-find-the-missing-number-in-a-given-integer-array-of-1-to-100)
-[2. How do you find the duplicate number on a given integer array?]
-[3. How do you find the largest and smallest number in an unsorted integer array?]
+[2. How do you find the duplicate number on a given integer array?](#2-how-do-you-find-the-duplicate-number-on-a-given-integer-array)
+[3. How do you find the largest and smallest number in an unsorted integer array?](#3-how-do-you-find-the-largest-and-smallest-number-in-an-unsorted-integer-array)
 [4. How do you find all pairs of an integer array whose sum is equal to a given number?]
 [5. How do you find duplicate numbers in an array if it contains multiple duplicates?]
 [6. How are duplicates removed from a given array in Java?]
@@ -57,6 +57,55 @@ class Solution:
         for i in range(1, len(nums)):
             if nums[i] == nums[i-1]:
                 return nums[i]
+```
+
+> ### 3. How do you find the largest and smallest number in an unsorted integer array?
+<p>Initiate 2 variables (min and max val). Iterate thru the array, each time comparing larger and smaller ones</p>
+
+```
+def largestSmallest(nums):
+    smaller = nums[0]
+    larger = nums[0]
+
+    for i in range(1, len(nums)):
+        if nums[i] < smaller:
+            smaller = nums[i]
+        if nums[i] > larger:
+            larger = nums[i]
+    
+    return (smaller, larger)
+```
+
+> ### 4. How do you find all pairs of an integer array whose sum is equal to a given number?
+<p>Iterate thru all array items O(n2) -> each time, checking if the sum is == target sum</p>
+
+```
+def countPairs(nums):
+    output = list()
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            two_sum = nums[i] + nums[j]
+            if two_sum == target:
+                output.append(nums[i],nums[j])
+    return output
+```
+
+<p>ref: to this Leetcode Qn: Two Sum (similar - but this qn only has 1 pair each target)</p>
+
+[Related: Leetcode 1. Two Sum](https://leetcode.com/problems/two-sum/)
+
+```
+# Leetcode Ans
+def twoSum(self, nums: List[int], target: int) -> List[int]:
+    nums_dict = dict()
+    
+    for i in range(len(nums)):
+        diff = target - nums[i]
+        
+        if diff in nums_dict.keys():
+            return (i, nums_dict[diff])
+        else:
+            nums_dict[nums[i]] = i
 ```
 
 ---
